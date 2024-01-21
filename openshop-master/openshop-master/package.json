@@ -1,0 +1,42 @@
+{
+  "name": "openshop",
+  "version": "1.0.0",
+  "description": "OpenShop ECommerce Web Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start:dev": "nodemon app.js",
+    "lint": "eslint ./"
+  },
+  "author": "Nostra",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^2.4.1",
+    "cookie-parser": "^1.4.5",
+    "countryjs": "^1.8.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.1",
+    "express-useragent": "^1.0.15",
+    "express-validator": "^6.9.2",
+    "geoip-lite": "^1.4.2",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.12",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "us-state-converter": "^1.0.5",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-plugin-react": "^7.22.0",
+    "nodemon": "^2.0.7"
+  }
+}

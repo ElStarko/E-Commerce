@@ -1,0 +1,75 @@
+<body class="vertical  light  ">
+    <div class="wrapper">
+      <%- include('../includes/side-nav.ejs') %>
+      <main role="main" class="main-content">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="float-right mb-2">
+                <button type="button" class="btn mb-2 mr-3 btn-primary" onclick="location.href='products/add'">Add Product</button>
+              </div>
+
+              <h2 class="mb-2 page-title">Products</h2>
+              <p class="card-text">Your Products</p>
+              
+              <div class="row my-4">
+                <!-- Small table -->
+                <div class="col-md-12">
+                  <div class="card shadow">
+                    <div class="card-body">
+                      <!-- table -->
+                      <table class="table datatables" id="dataTable-1">
+                        <thead>
+                          <tr>
+                            <th></th>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody> 
+                        <% for(product of products) { %>
+                          <tr>
+                            <td>
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input">
+                                <label class="custom-control-label"></label>
+                              </div>
+                            </td>
+                            <td><%= product._id %></td>
+                            <td><%= product.name %></td>
+                            <td><%= product.description %></td>
+                            <td><%= product.type %></td>
+                            <td>$ <%= product.price %></td>
+                            <td><%= product.stock %></td>
+                            <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="text-muted sr-only">Action</span>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-right">
+                                  <a class="dropdown-item" href="/dashboard/products/edit/<%= product._id %>?edit=true">Edit</a>
+                                  <input type="hidden" name="productId" value="<%= product._id %>">
+                                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                  <button type="button" class="dropdown-item" onclick="deleteProduct(this)">Remove</button>
+                              </div>
+                            </td>
+                          </tr>
+                        <% } %>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div> <!-- simple table -->
+              </div> <!-- end section -->
+            </div> <!-- .col-12 -->
+          </div> <!-- .row -->
+          <%- include('../includes/pagination.ejs') %>
+        </div> <!-- .container-fluid -->
+        <%- include('../includes/sidebar.ejs') %>
+      </main> <!-- main -->
+    </div> <!-- .wrapper -->
+    <script src="/js/user/product.js"></script>
+</body>
